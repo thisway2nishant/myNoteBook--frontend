@@ -19,7 +19,6 @@ const NoteState = (props) => {
 
     const response = await fetch(`${host}/api/notes/getNotes`, options);
     const json = await response.json();
-    console.log(json)
     setNote(json);
   };
 
@@ -78,6 +77,8 @@ const NoteState = (props) => {
 
     const response = await fetch(`${host}/api/notes/updateNote/${id}`, options);
     response.json();
+
+    fetchNotes();
   };
   return (
     <NoteContext.Provider
